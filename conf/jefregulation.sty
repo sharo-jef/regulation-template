@@ -1,0 +1,106 @@
+%
+% @author: sharo_jef
+%
+
+\usepackage{color}
+\usepackage{enumitem}
+
+% ヘッダ定義
+\makeatletter
+\def\@documentnumber{}
+\def\documentnumber#1{\gdef\@documentnumber{{#1}}}
+\renewcommand{\@maketitle}{
+    \newpage
+    % 文書番号（もしあれば）＋日付
+    \begin{flushright}
+    \if{\begingroup \@documentnumber \endgroup}{}
+    \else
+    \@documentnumber \par
+    \fi
+    \end{flushright}
+    \@date
+    \vspace{1.0zh}
+    \vspace{1.0zh}
+    % 作成者
+    \begin{flushright}
+    \@author
+    \end{flushright}
+    \bigskip
+    % タイトル
+    \begin{center}
+        {\@title}
+    \end{center}
+    \bigskip
+}
+
+\def\@seccntformat#1{
+    \@nameuse{@seccnt@prefix@#1}
+    \@nameuse{the#1}
+    \@nameuse{@seccnt@postfix@#1}
+    \@nameuse{@seccnt@afterskip@#1}
+}
+\def\@seccnt@prefix@section{第}
+\def\@seccnt@postfix@section{章}
+\def\@seccnt@afterskip@section{\hskip 1zw}
+\renewcommand{\section}{
+    \@startsection{section}
+        {1}
+        {\z@}
+        {0\Cvs \@plus.5\Cvs \@minus.2\Cvs}
+        {.5\Cvs \@plus.3\Cvs}
+        {
+            \centering
+            \normalfont
+            % \Large
+            % \bfseries
+            \hspace{-10pt}
+        }
+}
+\def\@seccnt@prefix@subsection{}
+\def\@seccnt@postfix@subsection{.}
+\def\@seccnt@afterskip@subsection{}
+\renewcommand{\subsection}{
+    \@startsection{subsection}
+        {2}
+        {\z@}
+        {0\Cvs \@plus.5\Cvs \@minus.2\Cvs}
+        {.5\Cvs \@plus.3\Cvs}
+        {
+            \normalfont
+            \sffamily
+            \gtfamily
+        }
+}
+% subsectionが1.1みたいになるのを1に変える
+\renewcommand{\thesubsection}{\@arabic\c@subsection}
+\renewcommand{\thesubsubsection}{
+    % \thesubsection.\@arabic\c@subsubsection
+    (\@arabic\c@subsubsection)
+}
+\renewcommand{\theparagraph}{
+    \thesubsubsection.\@arabic\c@paragraph
+}
+\renewcommand{\thesubparagraph}{
+    \theparagraph.\@arabic\c@subparagraph
+}
+
+%
+% 以下のように利用する
+% \begin{enumerate}[label=(\aiu*)]
+%
+\def\aiu#1{\expandafter\@aiu\csname c@#1\endcsname}
+\def\@aiu#1{\ifcase#1\or ア\or イ\or ウ\or エ\or オ\or
+カ\or キ\or ク\or ケ\or コ\or
+サ\or シ\or ス\or セ\or ソ\or
+タ\or チ\or ツ\or テ\or ト\or
+ナ\or ニ\or ヌ\or ネ\or ノ\or
+ハ\or ヒ\or フ\or ヘ\or ホ\or
+マ\or ミ\or ム\or メ\or モ\or
+ヤ\or ユ\or ヨ\or
+ラ\or リ\or ル\or レ\or ロ\or
+ワ\or ヲ\or ン\fi}
+\AddEnumerateCounter{\aiu}{\@aiu}{(ア)}
+\makeatother
+% ヘッダ定義終了
+
+% \renewcommand{\labelenumi}{(\arabic{enumi})}

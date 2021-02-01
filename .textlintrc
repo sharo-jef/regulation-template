@@ -1,0 +1,53 @@
+{
+    "plugins": {
+        "latex2e": {
+            "extensions": [".tex"],
+        },
+    },
+    "rules": {
+        "@textlint-ja/no-synonyms": true,
+        "@textlint-ja/no-dropping-i": true,
+        "@textlint-ja/no-insert-dropping-sa": true,
+        "no-nfd": true,
+        "ja-no-redundant-expression": true,
+        "ja-no-abusage": true,
+        "no-dropping-the-ra": true,
+        "ja-no-successive-word": true,
+        "no-doubled-joshi": true,
+        "no-double-negative-ja": true,
+        "@textlint-ja/no-insert-re": true,
+        "no-mix-dearu-desumasu": true,
+        "prefer-tari-tari": true,
+        "no-mixed-zenkaku-and-hankaku-alphabet": true,
+        "no-hankaku-kana": true,
+        "max-kanji-continuous-len": {
+            max: 5,
+            allow: [],
+        },
+        "no-doubled-conjunctive-particle-ga": true,
+        "no-doubled-conjunction": true,
+        "max-ten": {
+            "max": 3,
+        },
+        "ja-no-weak-phrase": true,
+        "ja-no-mixed-period": {
+            "periodMark": "。",
+            "allowPeriodMarks": [],
+            "allowEmojiAtEnd": false,
+            "forceAppendPeriod": true,
+        },
+        "period-in-list-item": {
+            "periodMark": "",
+            "forceAppendPeriod": false,
+        },
+    },
+    "filters": {
+        "comments": {
+            "enablingComment": "textlint-enable",
+            "disablingComment": "textlint-disable",
+        },
+        "disable-next-line": {
+            "disablingComment": "textlint-disable-next-line",
+        },
+    },
+}

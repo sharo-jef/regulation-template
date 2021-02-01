@@ -1,0 +1,8 @@
+.vscode
+node_modules
+*.aux
+*.dvi
+*.log
+*.pdf
+*.bat
+*.sh
