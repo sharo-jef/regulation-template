@@ -1,5 +1,5 @@
 {
-  "name": "document-template",
+  "name": "regulation-template",
   "description": "クラン内共有文書のテンプレート",
   "version": "1.0.0",
   "devDependencies": {

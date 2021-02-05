@@ -4,6 +4,9 @@
 
 \usepackage{color}
 \usepackage{enumitem}
+\usepackage{ifthen}
+\usepackage{./conf/jefcounter}
+\usepackage{./conf/jefjobun}
 
 % ヘッダ定義
 \makeatletter
@@ -42,34 +45,34 @@
 \def\@seccnt@prefix@section{第}
 \def\@seccnt@postfix@section{章}
 \def\@seccnt@afterskip@section{\hskip 1zw}
-\renewcommand{\section}{
-    \@startsection{section}
-        {1}
-        {\z@}
-        {0\Cvs \@plus.5\Cvs \@minus.2\Cvs}
-        {.5\Cvs \@plus.3\Cvs}
-        {
-            \centering
-            \normalfont
-            % \Large
-            % \bfseries
-            \hspace{-10pt}
-        }
+\renewcommand{\section}{%
+    \@startsection{section}%
+        {1}%
+        {\z@}%
+        {0\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+        {.5\Cvs \@plus.3\Cvs}%
+        {%
+            \centering%
+            \normalfont%
+            % \Large%
+            % \bfseries%
+            \hspace{-10pt}%
+        }%
 }
-\def\@seccnt@prefix@subsection{}
-\def\@seccnt@postfix@subsection{.}
+\def\@seccnt@prefix@subsection{第}
+\def\@seccnt@postfix@subsection{条}
 \def\@seccnt@afterskip@subsection{}
-\renewcommand{\subsection}{
-    \@startsection{subsection}
-        {2}
-        {\z@}
-        {0\Cvs \@plus.5\Cvs \@minus.2\Cvs}
-        {.5\Cvs \@plus.3\Cvs}
-        {
-            \normalfont
-            \sffamily
-            \gtfamily
-        }
+\renewcommand{\subsection}[0]{%
+    \@startsection{subsection}%
+        {2}%
+        {\z@}%
+        {0\Cvs \@plus.5\Cvs \@minus.2\Cvs}%
+        {-.1zw}%
+        {%
+            \normalfont%
+            \sffamily%
+            \gtfamily%
+        }%
 }
 % subsectionが1.1みたいになるのを1に変える
 \renewcommand{\thesubsection}{\@arabic\c@subsection}
@@ -100,6 +103,8 @@
 ラ\or リ\or ル\or レ\or ロ\or
 ワ\or ヲ\or ン\fi}
 \AddEnumerateCounter{\aiu}{\@aiu}{(ア)}
+
+\newcommand{\heading}[1][]{\noindent（#1） \par}
 \makeatother
 % ヘッダ定義終了
 
