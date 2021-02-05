@@ -105,6 +105,32 @@
 \AddEnumerateCounter{\aiu}{\@aiu}{(ア)}
 
 \newcommand{\heading}[1][]{\noindent（#1） \par}
+
+\newcommand\besshi[1][1]{
+    \newpage
+    \begin{flushright}%
+        別紙第#1%
+    \end{flushright}%
+}
+\newcommand\besshirimen[1][1]{
+    \newpage
+    \begin{flushright}%
+        別紙第#1（裏面）%
+    \end{flushright}%
+}
+
+\newcommand\youshiki[1][1]{
+    \newpage
+    \begin{flushright}%
+        第#1号様式%
+    \end{flushright}%
+}
+\newcommand\youshikirimen[1][1]{
+    \newpage
+    \begin{flushright}%
+        第#1号様式（裏面）%
+    \end{flushright}%
+}
 \makeatother
 % ヘッダ定義終了
 
